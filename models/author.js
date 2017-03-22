@@ -1,6 +1,7 @@
 module.exports = function(sequelize, Datatypes){
 	var users = sequelize.define("users",{
 		user_id:{
+			//make unique key
 			type: DataTypes.INTEGER,
 			allowNull: false,
 		},
