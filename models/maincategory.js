@@ -4,6 +4,7 @@ module.exports = function(sequelize, Datatypes){
 			//make primary key
 			type: Datatypes.INTEGER,
 			allowNull: false,
+			primaryKey: true
 		},
 		maincategories_name: {
 			type: Datatypes.STRING,

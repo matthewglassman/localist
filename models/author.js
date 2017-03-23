@@ -4,6 +4,7 @@ module.exports = function(sequelize, Datatypes){
 			//make unique key
 			type: DataTypes.INTEGER,
 			allowNull: false,
+			primaryKey: true
 		},
 		user_name:{
 			type: DataTypes.STRING,
