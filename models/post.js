@@ -4,7 +4,8 @@ module.exports = function(sequelize, Datatypes){
 			//make unique key
 			type: Datatypes.INTEGER,
 			allowNull: false,
-			primaryKey: true
+			primaryKey: true,
+			autoIncrement:true
 		},
 		post_title:{
 			type: Datatypes.String,
