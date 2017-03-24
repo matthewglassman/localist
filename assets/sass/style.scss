@@ -1,7 +1,33 @@
-$my_base_color: #CEE8A9;
+$pink: #EAD5E1;
+$mint: #AEE0C5;
+$blue: #CBEAEB;
+$orange: #FFB100;
+$deep_turq: #6799A3;
+
+
+$my_base_color: #ffffff;
 $font_color: black; 
 
 body {
 	background-color: $my_base_color;
 	color: $font_color;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1 {
+	text-align: center;
+	font-size: 6em;
+	border-bottom: $pink .1em solid;
+	font-family: 'Trocchi', serif;
+
+}
+
+h2 {
+	text-align: center;
+}
+
+#choices {
+	background-color: $mint;
+	color: $font_color;
+	text-align: center;
 }
