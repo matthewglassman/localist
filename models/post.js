@@ -18,7 +18,12 @@ module.exports = function(sequelize, Datatypes){
 		//should this be in here or in an image folder instead
 		post_photo:{
 			type: Datatypes.BLOB('long'),
+			allowNull: true,
 		},
 		//make foreign key associations
-	})
-}
+	});
+	return posts;
+	posts.belongsTo(users);
+	posts.belongsTo(maincategories);
+	posts.belongsTo(subcategories);
+};

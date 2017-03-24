@@ -4,11 +4,15 @@ module.exports = function(sequelize, Datatypes){
 			//make primary key
 			type: Datatypes.INTEGER,
 			allowNull: false,
-			primaryKey: true
+			primaryKey: true,
+			autoIncrement:true
 		},
 		maincategories_name: {
 			type: Datatypes.STRING,
-			allowNull: false,
+			allowNull: false
 		}
 	});
+	return maincategories;
+	maincategories.hasMany(posts);
+	maincategories.hasMany(subcategories);
 };
