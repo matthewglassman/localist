@@ -8,7 +8,7 @@ module.exports = function(sequelize, Datatypes){
 			autoIncrement:true
 		},
 		post_title:{
-			type: Datatypes.String,
+			type: Datatypes.STRING,
 			allowNull: false,
 		},
 		post_body:{
@@ -20,6 +20,10 @@ module.exports = function(sequelize, Datatypes){
 			type: Datatypes.BLOB('long'),
 			allowNull: true,
 		},
+		post_price:{
+			type: Datatypes.DECIMAL(13, 2),
+			allowNull: true
+		}
 		//make foreign key associations
 	});
 	return posts;
