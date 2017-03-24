@@ -24,5 +24,7 @@ module.exports = function(sequelize, Datatypes){
 		}
 		
 	});
+
+	users.hasMany(posts);
 	return users;
 };
