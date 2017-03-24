@@ -1,55 +1,5 @@
+<link rel="stylesheet" type="text/css" href="assets/css/style.css"{{stylesheet}}/>
+
+
 <h1>Localist</h1>
 	  <p><b>Local</b> deals by <b>local</b> people.</p>
-
-<div id="choices">
-<form method="">
-<h3> Selling or Buying? </h3>
-<select name="action">
-  <option value="sell">Sell Locally</option>
-  <option value="buy">Buy Locally</option>
-</select>
-<h3> Enter a zipcode: </h3>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-</head>
-
-<body>
-<div id="zipcode-input">
-
-	<h2>Enter a zip code <span id="zipRequire">(required)</span></h2>
-	<input type="number" id="zipcode">
-	<input type="submit" value="Submit" id="submit-btn">
-	<br>
-
-</div>
-
-<div id="latlng-result">
-<br>
-</div>
-
-<script>
-$(document).ready(function() {
-	var zipcode; // hold user input zip code
-	var lat; // hold lat of zip code
-	var lng; // hold lng of zip code
-
-	$(document).on("click", "#submit-btn", function() { 
-		zipcode = document.getElementById("zipcode").value; // grabbing zip code user inputted
-
-		var zipcodeURL = "https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/ERgQTtDtRQ1nk26mZjV3dUALkNIwqog5fwV9ZyDQoEeJHk6GE1JRWkDg7lNyJ3DZ/info.json/" + zipcode + "/degrees"
-
-		$.ajax({
-			url: zipcodeURL,
-			method: "GET",
-			headers: { "X-Requested-With": "" },
-			}).done(function(response){
-        		lat = parseFloat(response.lat); 
-        		lng = parseFloat(response.lng); 
-
-        		$("#latlng-result").html("Your latitude is " + lat + " and your longitude is " + lng);
-			});
-	});
-
-
-
-});
-</script>
