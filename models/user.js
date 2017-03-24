@@ -1,4 +1,4 @@
-module.exports = function(sequelize, Datatypes){
+module.exports = function(sequelize, DataTypes){
 	var users = sequelize.define("users",{
 		user_id:{
 			//make unique key
@@ -13,7 +13,7 @@ module.exports = function(sequelize, Datatypes){
 		},
 		user_zip:{
 			type: DataTypes.INTEGER(5),
-			allowNull: false
+			allowNull: false,
 			validate: {
 				isNumeric: true,
 				isLengthFive: function(value){
@@ -21,10 +21,15 @@ module.exports = function(sequelize, Datatypes){
 				}
 
 			},
-		}
-		
+		}	
+	}, 
+	{
+		classMethods: {
+        associate: function(models) {
+          users.hasMany(models.posts);
+        }
+      }
 	});
 
-	users.hasMany(posts);
 	return users;
 };
