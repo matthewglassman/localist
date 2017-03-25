@@ -22,14 +22,8 @@ module.exports = function(sequelize, DataTypes){
 
 			},
 		}	
-	}, 
-	{
-		classMethods: {
-        associate: function(models) {
-          users.hasMany(models.posts);
-        }
-      }
 	});
 
+	users.hasMany(posts);
 	return users;
 };
