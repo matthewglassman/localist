@@ -13,6 +13,7 @@ var methodOverride = require('method-override');
 // =============================================================
 var app = express();
 var port = process.env.PORT || 3030;
+var db = require("./models");
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
@@ -32,6 +33,12 @@ require('./routes/html-routes.js')(app);
 // require("./app/routes/api-routes.js")(app);
 // require("./app/routes/html-routes.js")(app);
 
-app.listen(port, function() {
-  console.log("App listening on PORT " + port);
+// app.listen(port, function() {
+//   console.log("App listening on PORT " + port);
+
+//Syncing models here
+db.sequelize.sync({force:true}).then(function(){
+	app.listen(PORT, function(){
+		console.log("App listening on PORT " + PORT);
+	});
 });
