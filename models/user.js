@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes){
 		},
 		user_name:{
 			type: DataTypes.STRING,
-			allowNull: false,
+			allowNull: false
 		},
 		user_zip:{
 			type: DataTypes.INTEGER(5),
@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes){
 					var isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(value);
 				}
 
-			},
+			}
 		}	
 	}, 
 	{
