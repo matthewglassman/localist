@@ -12,7 +12,7 @@ var methodOverride = require('method-override');
 // Sets up the Express App
 // =============================================================
 var app = express();
-var port = process.env.PORT || 3030;
+var PORT = process.env.PORT || 3030;
 var db = require("./models");
 
 // Sets up the Express app to handle data parsing
@@ -37,7 +37,7 @@ require('./routes/html-routes.js')(app);
 //   console.log("App listening on PORT " + port);
 
 //Syncing models here
-db.sequelize.sync({force:true}).then(function(){
+db.sequelize.sync({force:true}).then(function(){ // take force:true out to prevent it from deleting each time
 	app.listen(PORT, function(){
 		console.log("App listening on PORT " + PORT);
 	});
