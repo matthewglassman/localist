@@ -34,7 +34,7 @@ module.exports = function(sequelize, Datatypes){
 						allowNull: false
 					}
 				}),
-				posts.belongsTo(models.users, {
+				posts.belongsTo(models.maincategories, {
 					foreignKey:{
 						allowNull: false
 					}
