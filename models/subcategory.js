@@ -10,11 +10,27 @@ module.exports = function(sequelize, Datatypes){
 		subcategories_name:{
 			type: Datatypes.STRING,
 			allowNull: false,
+		},
+		{
+			classMethods: {
+				associate: function(models){
+					subcategories.belongsTo(models.maincategories, {
+						foreignKey:{
+							allowNull: false
+						}
+					});
+					subcategories.hasMany(models.posts, {
+						foreignKey:{
+							allowNull: false
+						}
+					});
+				}
+			}
 		}
 	});
 	return subcategories;
-	subcategories.belongsTo(maincategories);
-	subcategories.hasMany(posts);
+	// subcategories.belongsTo(maincategories);
+	// subcategories.hasMany(posts);
 
 
 };

@@ -24,10 +24,32 @@ module.exports = function(sequelize, Datatypes){
 			type: Datatypes.DECIMAL(13, 2),
 			allowNull: true
 		}
+	},
+		{
 		//make foreign key associations
-	});
+		classMethods: {
+			associate: function(models){
+				posts.belongsTo(models.users,{
+					foreignKey:{
+						allowNull: false
+					}
+				}),
+				posts.belongsTo(models.users, {
+					foreignKey:{
+						allowNull: false
+					}
+				}),
+				posts.belongsTo(models.subcategories, {
+					foreignKey:{
+						allowNull: false
+					}
+				})
+			}
+		}
+		}
+	);
 	return posts;
-	posts.belongsTo(users);
-	posts.belongsTo(maincategories);
-	posts.belongsTo(subcategories);
+	// posts.belongsTo(users);
+	// posts.belongsTo(maincategories);
+	// posts.belongsTo(subcategories);
 };
