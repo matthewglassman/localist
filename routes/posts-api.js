@@ -39,7 +39,8 @@ module.exports = function(app){
 			res.json(dbposts);
 		});
 	});
-	app.put("/api/post", function(req, res){
+	
+	app.put("/api/posts", function(req, res){
 		db.posts.update(
 			req.body, 
 			{
