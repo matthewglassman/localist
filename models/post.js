@@ -1,27 +1,27 @@
-module.exports = function(sequelize, Datatypes){
+module.exports = function(sequelize, DataTypes){
 	var posts = sequelize.define("posts", {
 		post_id:{
 			//make unique key
-			type: Datatypes.INTEGER,
+			type: DataTypes.INTEGER,
 			allowNull: false,
 			primaryKey: true,
 			autoIncrement:true
 		},
 		post_title:{
-			type: Datatypes.STRING,
-			allowNull: false,
+			type: DataTypes.STRING,
+			allowNull: false
 		},
 		post_body:{
-			type: Datatypes.TEXT,
-			allowNull: false,
+			type: DataTypes.TEXT,
+			allowNull: false
 		},
 		//should this be in here or in an image folder instead
 		post_photo:{
-			type: Datatypes.BLOB('long'),
-			allowNull: true,
+			type: DataTypes.BLOB('long'),
+			allowNull: true
 		},
 		post_price:{
-			type: Datatypes.DECIMAL(13, 2),
+			type: DataTypes.DECIMAL(13, 2),
 			allowNull: true
 		}
 	},
