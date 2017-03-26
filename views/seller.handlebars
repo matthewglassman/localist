@@ -1,13 +1,13 @@
 <h2>Whatcha Sellin'?</h2>
 
 <h3>Create a new listing!</h3>
-  <form class="create-update-form" action="/" method="POST">
+  <form class="create-update-form" action="/add" method="POST">
     <div class="form-group">
-      <label for="ls-title">Title</label>
-      <input type="text" id="ls-title" name="post_title"><br>
+      <label for="post_title">Title</label>
+      <input type="text" id="post_title" name="post_title"><br>
 
-      <label for="ls-body">Body</label>
-      <input type="text" id="ls-body" name="post_body"><br>
+      <label for="post_body">Body</label>
+      <input type="text" id="post_body" name="post_body"><br>
 
       <select>
         <option value="1">For Sale</option>
@@ -15,25 +15,21 @@
         <option value="3">Personals</option>
       </select><br>
 
-      <label for="ls-price">Price</label>
-      <input type="number" id="ls-price" name="post_price"><br>
+      <label for="post_price">Price</label>
+      <input type="number" id="post_price" name="post_price"><br>
 
     </div>
 
     <button type="submit">Submit new listing!</button>
   </form>
 
-  <h3>Your current listings!</h3>
-  <!-- this code doesn't work yet without the database/routing
-  
-  <ul>
-    {{#each ??? }}
+<h3>Your current listings!</h3>
+<ul>
+    {{#each dbposts}}
       <li>
-        {{this.post}} - {{this.price}}
+        {{this.post_title}}
+        {{!-- {{this.post_body}} --}}
       </li>
     {{/each}}
   </ul>
-
-  -->
-
 

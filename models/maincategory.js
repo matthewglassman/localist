@@ -15,15 +15,15 @@ module.exports = function(sequelize, DataTypes){
 		{
 			classMethods: {
 				associate: function(models){
-					maincategories.hasMany(models.post),
+					maincategories.hasMany(models.posts),
 					maincategories.hasMany(models.subcategories)
 				}
 			}
 		});
 
-	maincategories.create({ maincategories_name: 'For Sale'})
-	maincategories.create({ maincategories_name: 'Housing'})
-	maincategories.create({ maincategories_name: 'Personals'});
+	// maincategories.create({ maincategories_name: 'For Sale'})
+	// maincategories.create({ maincategories_name: 'Housing'})
+	// maincategories.create({ maincategories_name: 'Personals'});
 	
 	return maincategories;
 	// maincategories.hasMany(posts);
