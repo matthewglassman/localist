@@ -4,12 +4,18 @@
 	</div>
 
 <div id="choices">
+
+
+{{!-- commenting this out for now to put it into profile.handlebars
+
 <form method="">
 <h3> Selling or Buying? </h3>
 <select name="action">
   <option value="sell">Sell Locally</option>
   <option value="buy">Buy Locally</option>
-</select>
+</select> --}}
+
+{{!-- commenting this out for now until we figure out the login/authentication
 
 <div class="row">
     <div class="container">
@@ -37,8 +43,16 @@
               <button class="btn #03a9f4 light-blue" type="submit" name="action" id="loginButton" ><i class="mdi-action-lock-open"></i><a id="loginButton" href="ProjectOne_FirstDraft.html">Login</a></button>
               </div>
               </div>
-              </form>
+              </form> --}}
 
+<!-- temporary sign in, only has username -->
+<h3>Sign in</h3>
+<form class="create-update-form" action="/login" method="GET">
+  <label for="user_name">Username</label>
+  <input type="text" id="user_name" name="user_name"><br>
+  <button type="submit">Login!</button>
+</form>
+</div>
 
 {{!-- <body> --}}
 <div id="zipcode-input">
