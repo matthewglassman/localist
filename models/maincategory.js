@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes){
 	var maincategories = sequelize.define("maincategories", {
-		maincategory_id: {
+		id: {
 			//make primary key
 			type: DataTypes.INTEGER,
 			allowNull: false,
@@ -15,20 +15,16 @@ module.exports = function(sequelize, DataTypes){
 		{
 			classMethods: {
 				associate: function(models){
-					maincategories.hasMany(models.posts, {
-						foreignKey: {
-							allowNull: false
-						}
-					}),
-					maincategories.hasMany(models.subcategories, {
-						foreignKey: {
-							allowNull: false
-						}
-					})
+					maincategories.hasMany(models.post),
+					maincategories.hasMany(models.subcategories)
 				}
 			}
 		});
 
+	maincategories.create({ maincategories_name: 'For Sale'})
+	maincategories.create({ maincategories_name: 'Housing'})
+	maincategories.create({ maincategories_name: 'Personals'});
+	
 	return maincategories;
 	// maincategories.hasMany(posts);
 	// maincategories.hasMany(subcategories);
