@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes){
 	var subcategories = sequelize.define("subcategories", {
-		subcategories_id:{
+		id:{
 			//make unique key
 			type: DataTypes.INTEGER,
 			allowNull: false,
@@ -20,11 +20,7 @@ module.exports = function(sequelize, DataTypes){
 							allowNull: false
 						}
 					}),
-					subcategories.hasMany(models.posts, {
-						foreignKey:{
-							allowNull: false
-						}
-					})
+					subcategories.hasMany(models.posts)
 				}
 			}
 		});
