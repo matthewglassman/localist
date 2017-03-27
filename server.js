@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-app.use('/assets', express.static('assets'));
+app.use('/assets', express.static('public/assets'));
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
@@ -39,7 +39,7 @@ require('./routes/users-api.js')(app);
 //   console.log("App listening on PORT " + port);
 
 //Syncing models here
-db.sequelize.sync({}).then(function(){ // take force:true out to prevent it from deleting each time
+db.sequelize.sync({force: true}).then(function(){ // take force:true out to prevent it from deleting each time
 	app.listen(PORT, function(){
 		console.log("App listening on PORT " + PORT);
 	});

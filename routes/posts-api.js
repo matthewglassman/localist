@@ -13,8 +13,8 @@ module.exports = function(app){
 	// haven't looked at this code yet
 	app.get("/api/posts", function(req, res){
 		var query = {};
-		if(req.query.users_id){
-			query.usersID = req.query.users_id;
+		if(req.query.users.id){
+			query.usersid = req.query.users.id;
 		}
 		db.posts.findAll({
 			where: query
