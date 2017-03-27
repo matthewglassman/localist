@@ -4,6 +4,7 @@
     "password": null,
     "database": "localist",
     "host": "localhost",
+
     "dialect": "mysql"
   },
   "test": {
