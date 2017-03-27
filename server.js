@@ -39,7 +39,7 @@ require('./routes/users-api.js')(app);
 //   console.log("App listening on PORT " + port);
 
 //Syncing models here
-db.sequelize.sync({}).then(function(){ // take force:true out to prevent it from deleting each time
+db.sequelize.sync({force: true}).then(function(){ // take force:true out to prevent it from deleting each time
 	app.listen(PORT, function(){
 		console.log("App listening on PORT " + PORT);
 	});
