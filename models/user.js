@@ -1,3 +1,5 @@
+var bcrypt = require('bcryptjs');
+
 module.exports = function(sequelize, DataTypes){
 	var users = sequelize.define("users",{
 		id:{
@@ -18,6 +20,10 @@ module.exports = function(sequelize, DataTypes){
 				isEmail: true,
 			}
 		},
+		user_password:{
+			type: DataTypes.TEXT,
+			allowNull: false
+		},
 		user_zip:{
 			type: DataTypes.INTEGER(5),
 			allowNull: false,
@@ -29,7 +35,13 @@ module.exports = function(sequelize, DataTypes){
 
 			}
 		}	
-	}, 
+	}, {
+		hooks: {
+			afterValidate: function(user){
+				user.password = bcrypt.hashSync(user.password, 8);
+			}
+		}
+	},
 	{
 		classMethods: {
         associate: function(models) {
