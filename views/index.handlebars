@@ -5,17 +5,57 @@
 
 <div id="choices">
 
+<body>
+  <div class="container">
+    <div class="row top-30">
+      <div class="col-md-2 col-sm-2">
+        <a class="btn btn-default" href="/blog">Go to Blog</a>
+      </div>
+      <div class="col-md-2 col-sm-2">
+        <a class="btn btn-default" href="/cms">New Post</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="author-container">
+          <h1>Authors</h1>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th># of Posts</th>
+                <th>See Author's Posts</th>
+                <th>New Post</th>
+                <th>Delete Author</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="form-row">
+                <form id="author-form">
+                  <td colspan="4">
+                    <input placeholder="Enter a name" id="author-name" type="text" />
+                  </td>
+                  <td><button type="submit" class="btn btn-success">Create Author</button>
+                  </td>
+                </form>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    </d>
+ 
 
-{{!-- commenting this out for now to put it into profile.handlebars
-
-<form method="">
+{{!-- <form method="">
 <h3> Selling or Buying? </h3>
 <select name="action">
+  <option value="create">Create Account</option>
   <option value="sell">Sell Locally</option>
   <option value="buy">Buy Locally</option>
-</select> --}}
+</select> 
 
-{{!-- commenting this out for now until we figure out the login/authentication
+
 
 <div class="row">
     <div class="container">
@@ -29,7 +69,7 @@
               <div class="input-field col s4">
               <i class="mdi-action-account-circle prefix"></i>
               <input id="icon_prefix" type="text" class="validate">
-              <label for="icon_prefix">Username</label>
+              <label for="icon_prefix">Email</label>
               </div>
 
               <div class="input-field col s4">
@@ -43,9 +83,9 @@
               <button class="btn #03a9f4 light-blue" type="submit" name="action" id="loginButton" ><i class="mdi-action-lock-open"></i><a id="loginButton" href="THISNEEDSTOUPDATED.html">Login</a></button>
               </div>
               </div>
-              </form> --}}
+              </form> 
 
-<!-- temporary sign in, only has username -->
+{{!-- <!-- temporary sign in, only has username -->
 <h3>Sign in</h3>
 <form class="create-update-form" action="/login" method="GET">
   <label for="user_name">Username</label>
@@ -53,7 +93,7 @@
   <button type="submit">Login!</button>
 </form>
 </div>
-
+ --}}
 {{!-- <body> --}}
 <div id="zipcode-input">
 
@@ -94,4 +134,4 @@ $(document).ready(function() {
 
 
 });
-</script>
+</script> --}}
