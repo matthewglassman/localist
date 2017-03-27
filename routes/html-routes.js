@@ -30,7 +30,7 @@ module.exports = function(app) {
   app.get("/buyer", function(req, res) {
     res.render("../views/buyer");
   });
-
+  // user profile route loads user profile
   app.get("/profile", function(req, res) {
     res.render("../views/profile");
   });
