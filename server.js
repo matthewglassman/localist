@@ -27,6 +27,8 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 require('./routes/html-routes.js')(app);
+require('./routes/posts-api.js')(app);
+require('./routes/users-api.js')(app);
 
 // Routes
 // =============================================================
@@ -37,7 +39,7 @@ require('./routes/html-routes.js')(app);
 //   console.log("App listening on PORT " + port);
 
 //Syncing models here
-db.sequelize.sync({force:true}).then(function(){ // take force:true out to prevent it from deleting each time
+db.sequelize.sync({}).then(function(){ // take force:true out to prevent it from deleting each time
 	app.listen(PORT, function(){
 		console.log("App listening on PORT " + PORT);
 	});
