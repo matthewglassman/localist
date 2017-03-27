@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes){
 	var maincategories = sequelize.define("maincategories", {
-		id: {
+		maincategories_id: {
 			//make primary key
 			type: DataTypes.INTEGER,
 			allowNull: false,
