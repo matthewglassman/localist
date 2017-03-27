@@ -1,0 +1,30 @@
+body {
+	background-color: $my_base_color;
+	color: $font_color;
+	font-family: $font_posts;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: $font_heads;
+}
+
+h1 {
+	align: center;
+	text-align: center;
+	font-size: 6em;
+	// border-bottom: $pink .1em solid;
+    border-radius: 15px 50px;
+    background: $pink;
+    padding: 20px; 
+    width: 200px;
+    height: 150px;
+}
+
+h2 {
+	text-align: center;
+}
+
+#choices {
+	background-color: $mint;
+	color: $font_color;
+	text-align: center;
+}

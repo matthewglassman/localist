@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro|Trocchi");
 /*! normalize.css v6.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -369,29 +368,3 @@ template {
  */
 [hidden] {
   display: none; }
-
-body {
-  background-color: #ffffff;
-  color: black;
-  font-family: "Source Sans Pro", sans-serif; }
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Trocchi", serif; }
-
-h1 {
-  align: center;
-  text-align: center;
-  font-size: 6em;
-  border-radius: 15px 50px;
-  background: #EAD5E1;
-  padding: 20px;
-  width: 200px;
-  height: 150px; }
-
-h2 {
-  text-align: center; }
-
-#choices {
-  background-color: #AEE0C5;
-  color: black;
-  text-align: center; }

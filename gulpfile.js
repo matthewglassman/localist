@@ -7,13 +7,13 @@ gulp.task('default', function() {
 });
 
 gulp.task('styles', function() {
-    gulp.src('assets/sass/**/*.scss')
+    gulp.src('public/assets/sass/**/*.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('assets/css/'))
+        .pipe(gulp.dest('public/assets/css/'))
 }); 
 
 gulp.task('watch', function() {
-	gulp.watch('assets/sass/**/*.scss',['styles']);
+	gulp.watch('public/assets/sass/**/*.scss',['styles']);
 });
 
 gulp.task('default', ['watch']);
