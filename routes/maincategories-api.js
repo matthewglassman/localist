@@ -3,7 +3,7 @@ var db = require("../models");
 module.exports = function(app) {
 	app.get("/api/maincategories", function(req, res){
 		db.maincategories.findAll({}).then(function(dbmaincategories){
-			res.json(dbusers);
+			res.json(dbmaincategories);
 		});
 	});
 

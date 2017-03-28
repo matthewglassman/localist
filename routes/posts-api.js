@@ -34,9 +34,16 @@ module.exports = function(app){
 		});
 	});
 
-	app.post("/api/posts", function(req, res) {
-		db.posts.create(req.body).then(function(dbposts){
+	app.post("/api/posts/new", function(req, res) {
+		//db.posts.create(req.body).then(function(dbposts){
+		db.posts.create({
+			post_title: req.body.title,
+			post_body: req.body.postbody,
+			post_photo: req.body.photo,
+			post_price: req.body.price
+		}).then(function(dbposts){
 			res.json(dbposts);
+		}
 		});
 	});
 
