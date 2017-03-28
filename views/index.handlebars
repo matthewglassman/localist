@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/styles.css" media="screen" title="no title">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="js/user.js"></script>
 </head>
 
 <body>
@@ -30,11 +31,13 @@
             {{!-- <div class="col-md-8 col-md-offset-2">
                 <div class="author-container">
                     <h1>LocaList</h1> --}}
+                    <div id="messages"></div>
                     <form id="author-form">
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>Email Address</th>
+                                <th>Password</th>
                                 <th>Full Name</th>
                                 
                             </tr>
@@ -42,7 +45,10 @@
                         <tbody>
                             <tr id="form-row">
                                 <td>
-                                    <input placeholder="Enter your Email Address" id="author-name" type="text" />
+                                    <input placeholder="Enter your Email Address" id="author-email" type="text" />
+                                </td>
+                                <td>
+                                    <input placeholder="Enter your Password" id="author-password" type="password">
                                 </td>
                                  <td>
                                     <input placeholder="Enter your Full Name" id="author-name" type="text" />
@@ -55,7 +61,7 @@
                             </tr>
                             <tr>
                                  <td>
-                                    <input placeholder="Enter your Zip Code" id="author-name" type="text" />
+                                    <input placeholder="Enter your Zip Code" id="author-zip" type="text" />
                                 </td>
                                 <td>
                                     <button type="submit" class="btn btn-success">Create an Account</button>
@@ -67,5 +73,5 @@
                 </div>
             </div>
         </div>
-        </d>
+        </div>
 
