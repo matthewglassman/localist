@@ -13,8 +13,21 @@ module.exports = function(app){
 	// haven't looked at this code yet
 	app.get("/api/posts", function(req, res){
 		var query = {};
-		if(req.query.users.id){
-			query.usersid = req.query.users.id;
+		// TODO make this work with search if needed
+		if (req.query.user_id) {
+			query.usersid = req.query.user_id;
+		}
+		if (req.query.search) {
+			var searchTerms = req.query.search;
+			var searchString = '%' + searchTerms + '%';
+			// TODO split the search string into terms?
+			query = {$or: [
+				{
+			      	post_title: { $like: searchString }
+			    } , {
+					post_body: { $like: searchString }
+			    }]
+			};
 		}
 		db.posts.findAll({
 			where: query

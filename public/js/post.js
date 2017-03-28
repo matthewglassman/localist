@@ -34,6 +34,3 @@ $(document).ready(function() {
   function submitPost(post) {
     $.post("/api/posts", post);
   }
-
-
-
