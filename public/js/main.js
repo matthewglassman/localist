@@ -1,0 +1,118 @@
+$(document).ready(function() {
+	// user.js
+
+	console.log('user.js');
+	var usernameInput = $("#author-name"); // whatever the <input> id is
+	var passwordInput = $("#author-password"); // whatever the <input> id is
+	var emailInput = $("#author-email");	// whatever the <input> id is
+	var zipInput = $("#author-zip"); // whatever the <input> id is
+
+	var userForm = $("#author-form"); // whatever the <form> id is
+
+	$(userForm).on("submit", handleUserSubmit);
+
+	function handleUserSubmit(event){
+		event.preventDefault(); // Won't submit the creation if missing username, password, email, zip code
+
+	    if (!usernameInput.val().trim() || !passwordInput.val().trim() || !emailInput.val().trim() || !zipInput.val().trim()) {
+	      return;
+	    }
+
+	    // Constructing a newUser object to hand to the database
+	    var newUser = {
+	      user_name: usernameInput
+	        .val()
+	        .trim(),
+	      user_email: emailInput
+	        .val()
+	        .trim(),
+	      user_password: passwordInput
+	        .val()
+	        .trim(),
+	      user_zip: zipInput
+	      	.val()
+	      	.trim(),
+	    };
+
+	    submitUser(newUser)
+	}
+
+	function submitUser(user) {
+		$.post("/api/users/new", user, function(data) {
+			console.log('Created user');
+			console.log(data.user_email);
+			$('#messages').html("Successfully created user: " + data.user_name);
+			// TODO maybe clear form if not redirecting to a new page
+			// TODO Either log in the user or redirect to a login page
+		}); // change /api/posts if we change the route in users-api.js
+	} // end submitUser()
+
+
+	// Posts
+	var titleInput = $("#post_title");
+	var bodyInput = $("#post_body");
+	var priceInput = $("#post_price");
+	// photo
+
+	var listingForm = $("#listing");
+
+	$(listingForm).on("submit", handlePostSubmit);
+
+	function handlePostSubmit(event) {
+	  event.preventDefault();
+	    if (!titleInput.val().trim() || !bodyInput.val().trim()) {
+	      return;
+	    }
+	    // Constructing a newPost object to hand to the database
+	    var newPost = {
+		    post_title: titleInput
+		      .val()
+		      .trim(),
+		    post_body: bodyInput
+		      .val()
+			  .trim(),
+		    post_price: priceInput
+		      .val()
+		      .trim()
+	  	};
+
+	} // end of handlePostSubmit
+
+	function submitPost(post) {
+	  $.post("/api/posts", post);
+	}
+
+
+	var searchInput = $("#search");
+
+	var searchForm = $("#search-form");
+
+	$(searchForm).on("submit", handleSearchSubmit);
+
+	function handleSearchSubmit(event) {
+		event.preventDefault();
+	    // TODO check that search inputs with spaces work
+
+	    getPosts(searchInput.val().trim());
+
+	  } // end of handleSearchSubmit
+
+	  function getPosts(searchTerms) {
+	  	var params = {
+	  		search: searchTerms
+	  	};
+
+	  	$.get("/api/posts/new", params, function(data) {
+	    	console.log(data);
+	    	var resultsTableBody = $('#results tbody');
+	    	// Clear out any existing search results
+	    	resultsTableBody.empty();
+	    	// POpulate table with search results
+	    	data.forEach(function(post) {
+	    		var tr = $('<tr>').appendTo(resultsTableBody);
+	    		$('<td>').html(post.post_title).appendTo(tr);
+	    	});
+	    	
+	    });
+	  }
+});
