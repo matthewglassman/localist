@@ -2,12 +2,13 @@
 
 
 $(document).ready(function() {
-	var usernameInput = $("#user_name"); // whatever the <input> id is
-	var passwordInput = $("#user_pass"); // whatever the <input> id is
-	var emailInput = $("#user_email");	// whatever the <input> id is
-	var zipInput = $("#user_zip"); // whatever the <input> id is
+	console.log('user.js');
+	var usernameInput = $("#author-name"); // whatever the <input> id is
+	var passwordInput = $("#author-password"); // whatever the <input> id is
+	var emailInput = $("#author-email");	// whatever the <input> id is
+	var zipInput = $("#author-zip"); // whatever the <input> id is
 
-	var userForm = $("#create_user"); // whatever the <form> id is
+	var userForm = $("#author-form"); // whatever the <form> id is
 
 	$(userForm).on("submit", handleFormSubmit);
 
@@ -26,6 +27,9 @@ $(document).ready(function() {
 	      user_email: emailInput
 	        .val()
 	        .trim(),
+	      user_password: passwordInput
+	        .val()
+	        .trim(),
 	      user_zip: zipInput
 	      	.val()
 	      	.trim(),
@@ -35,6 +39,13 @@ $(document).ready(function() {
 	}
 
 	function submitUser(user) {
-		$.post("/api/users", user); // change /api/posts if we change the route in users-api.js
+		$.post("/api/users", user, function(data) {
+			console.log('Created user');
+			console.log(data.user_email);
+			$('#messages').html("Successfully created user: " + data.user_name);
+			// TODO maybe clear form if not redirecting to a new page
+			// TODO Either log in the user or redirect to a login page
+		}); // change /api/posts if we change the route in users-api.js
 	} // end submitUser()
 
+});
