@@ -102,6 +102,7 @@ $(document).ready(function() {
 	$(searchForm).on("submit", handleSearchSubmit);
 
 	function handleSearchSubmit(event) {
+		console.log('search');
 		event.preventDefault();
 	    // TODO check that search inputs with spaces work
 
@@ -114,7 +115,7 @@ $(document).ready(function() {
 	  		search: searchTerms
 	  	};
 
-	  	$.get("/api/posts/new", params, function(data) {
+	  	$.get("/api/posts", params, function(data) {
 	    	console.log(data);
 	    	var resultsTableBody = $('#results tbody');
 	    	// Clear out any existing search results
@@ -123,6 +124,7 @@ $(document).ready(function() {
 	    	data.forEach(function(post) {
 	    		var tr = $('<tr>').appendTo(resultsTableBody);
 	    		$('<td>').html(post.post_title).appendTo(tr);
+	    		// TODO make row link to individual post page
 	    	});
 	    	
 	    });

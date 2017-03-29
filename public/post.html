@@ -8,8 +8,8 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css" media="screen" title="no title">
     <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.serializeJSON/2.7.2/jquery.serializejson.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="js/post.js"></script>
 </head>
 
 <body>
@@ -24,20 +24,22 @@
         </div>
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <form id="cms">
+                <form id="post-form">
                     <div class="form-group">
                         <label for="title">Title:</label>
-                        <input placeholder="Post Title" type="text" class="form-control" id="title">
+                        <input placeholder="Post Title" type="text" class="form-control" id="title" name="title">
                         <br />
                         <label for="body">Body:</label>
-                        <textarea placeholder="Post Body" class="form-control" rows="10" id="body"></textarea>
+                        <textarea placeholder="Post Body" name="body" class="form-control" rows="10" id="body"></textarea>
+                        <!-- TODO add price field -->
                         <div class="form-group">
-                            <label for="category">Select Subcatagory:</label>
-                            <select name="dwelling" class="form-control" id="author">
-                            <option value="item1">Homes for Sale</option>
-                            <option value="item2">Homes for Rent</option>
-                            >
-                            <option value="item3">Apartments for Rent</option>
+                            <label for="maincategory">Category:</label>
+                            <select name="maincategory" class="form-control" id="maincategory">
+                          </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="subcategory">Select Subcategory:</label>
+                            <select name="subcategory" class="form-control" id="subcategory">
                           </select>
                         </div>
                         <br />
