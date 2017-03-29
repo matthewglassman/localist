@@ -19,13 +19,13 @@ module.exports = function(sequelize, DataTypes){
 					maincategories.hasMany(models.subcategories)
 				}
 			}
-		});
+		})
 
 	// maincategories.create({ maincategories_name: 'For Sale'}).then(function(insertedCategory){
 	// 	console.log(insertedCategory.dataValues);
 	// });
-	maincategories.create({ maincategories_name: 'Housing'})
-	maincategories.create({ maincategories_name: 'Personals'});
+	// maincategories.create({ maincategories_name: 'Housing'});
+	// maincategories.create({ maincategories_name: 'Personals'});
 	
 	return maincategories;
 	// maincategories.hasMany(posts);

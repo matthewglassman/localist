@@ -47,16 +47,19 @@ module.exports = function(app){
 		});
 	});
 
-	app.post("/api/posts/new", function(req, res) {
+	app.post("/api/posts", function(req, res) {
 		//db.posts.create(req.body).then(function(dbposts){
+
 		db.posts.create({
-			post_title: req.body.title,
-			post_body: req.body.postbody,
-			post_photo: req.body.photo,
-			post_price: req.body.price
+			post_title: req.body.post_title,
+			post_body: req.body.post_body,
+			// post_photo: req.body.post_photo,
+			post_price: req.body.post_price,
+			maincategoryMaincategoriesId: req.body.post_maincategoryMaincategoriesId,
+			userId: req.body.userId,
+			subcategoryId: req.body.subcategoryId
 		}).then(function(dbposts){
 			res.json(dbposts);
-		
 		});
 	});
 

@@ -1,10 +1,6 @@
-<h1>Shop LocaList!</h1> <br>
+<h2>Search local listings!<h2> <br>
 
-<h2>Personals</h2> 
-
-<h2>missed connections<h2> <br>
-
-<h2>Dwellings</h2>
+{{!-- <h2>Dwellings</h2>
 <h2>houses for sale<h2>
 <h2>houses for rent<h2>
 <h2>apartments for rent<h2> <br>
@@ -15,3 +11,92 @@
 <h2>children's clothing<h2>
 <h2>housewares<h2>
 <h2>furniture<h2>
+ --}}
+
+ <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+{{!--       <a class="navbar-brand" href="/post.html">Post</a>
+ --}}    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/community.html" target="_blank">All Community</a></li>
+            <li><a href="/get_involved.html" target="_blank">Get Involved</a></li>
+            <li><a href="/events.html" target="_blank">Events</a></li>
+            <li><a href="/missed_connections.html" target="_blank">Missed Connections</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Housing <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/housing.html">All Housing</a></li>
+            <li><a href="/homes_for_sale.html" target="_blank">Homes for Sale</a></li>
+            <li><a href="/condos_for_sale.html" target="_blank">Condos for Sale</a></li>
+            <li><a href="/townhomes_for_sale.html" target="_blank">Townhomes for Sale</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/condos_for_rent.html" target="_blank">Condos for Rent</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/townhomes_for_rent.html" target="_blank">Townhomes for Rent</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">For Sale <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/for_sale.html" target="_blank">All For Sale</a></li>
+            <li><a href="/adult_clothing.html" target="_blank">Adult Clothing</a></li>
+            <li><a href="/childrens_clothing.html" target="_blank">Children's Fashion</a></li>
+            <li><a href="/housewares.html" target="_blank">Housewares</a></li>
+            <li><a href="/furniture.html" target="_blank">Furniture</a></li>
+            <li><a href="/toys.html" target="_blank">Toys</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left" id="search-form">
+        <div class="form-group">
+          <input type="text" id="search" name="search" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Terms of Service</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/" target="_blank">Home</a></li>
+            <li><a href="/post.html" target="_blank">Post an event or Item for sale</a></li>
+            <li><a href="#" target="_blank">Login</a></li>
+            <li role="separator" class="divider"></li>
+            <!-- <li><a href="#">Separated link</a></li> -->
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+</div>
+
+<div>
+<table id="results">
+<thead>
+  <tr><th>Title</th></tr>
+</thead>
+<tbody>
+</tbody>
+<table>
+</div>
