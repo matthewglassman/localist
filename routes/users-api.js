@@ -14,15 +14,15 @@ module.exports = function(app) {
 	// 	})
 	// });
 
-
 	// haven't looked at this code yet
-	app.get("/api/users", function(req, res){
-		db.users.findAll({}).then(function(dbusers){
+	app.get("/profile", function(req, res){
+		db.users.findAll({} ).then(function(dbusers){
 			res.json(dbusers);
 		});
 	});
+
 	app.post("/api/users", function(req, res){
-		console.log("from inside users-api "+req.body.user_name);
+		// console.log("from inside users-api "+req.body.user_name);
 		//db.users.create(req.body).then(function(dbusers){
 		//Writing in actual items to grab from user form to create a new user.  Need to get IDs of form fields.
 		db.users.create({
