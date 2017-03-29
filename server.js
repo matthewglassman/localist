@@ -27,6 +27,8 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 require('./routes/html-routes.js')(app);
+require('./routes/maincategories-api.js')(app);
+require('./routes/subcategories-api.js')(app);
 require('./routes/posts-api.js')(app);
 require('./routes/users-api.js')(app);
 
