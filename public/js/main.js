@@ -1,11 +1,11 @@
 $(document).ready(function() {
 	// user.js
 
-	console.log('user.js');
 	var usernameInput = $("#author-name"); // whatever the <input> id is
 	var passwordInput = $("#author-password"); // whatever the <input> id is
 	var emailInput = $("#author-email");	// whatever the <input> id is
 	var zipInput = $("#author-zip"); // whatever the <input> id is
+	var currentUser; 
 
 	var userForm = $("#author-form"); // whatever the <form> id is
 
@@ -15,6 +15,7 @@ $(document).ready(function() {
 		event.preventDefault(); // Won't submit the creation if missing username, password, email, zip code
 
 	    if (!usernameInput.val().trim() || !passwordInput.val().trim() || !emailInput.val().trim() || !zipInput.val().trim()) {
+	      console.log("empty input");
 	      return;
 	    }
 
@@ -33,18 +34,22 @@ $(document).ready(function() {
 	      	.val()
 	      	.trim(),
 	    };
+	    console.log(newUser);
 
-	    submitUser(newUser)
+	    submitUser(newUser);
 	}
 
 	function submitUser(user) {
-		$.post("/api/users/new", user, function(data) {
+		$.post("/api/users", user, function(data) {
 			console.log('Created user');
 			console.log(data.user_email);
-			$('#messages').html("Successfully created user: " + data.user_name);
+			currentUser = data.id;
+			// window.location.href = "http://localhost:3030/profile" // uncomment if modal not used
+
+			// $('#messages').html("Successfully created user: " + data.user_name);
 			// TODO maybe clear form if not redirecting to a new page
 			// TODO Either log in the user or redirect to a login page
-		}); // change /api/posts if we change the route in users-api.js
+		}) // change /api/posts if we change the route in users-api.js
 	} // end submitUser()
 
 
@@ -52,6 +57,7 @@ $(document).ready(function() {
 	var titleInput = $("#post_title");
 	var bodyInput = $("#post_body");
 	var priceInput = $("#post_price");
+	var categorySelect = $("#category")
 	// photo
 
 	var listingForm = $("#listing");
@@ -60,9 +66,10 @@ $(document).ready(function() {
 
 	function handlePostSubmit(event) {
 	  event.preventDefault();
-	    if (!titleInput.val().trim() || !bodyInput.val().trim()) {
+	    if (!titleInput.val().trim() || !bodyInput.val().trim() || !categorySelect.val()) {
 	      return;
 	    }
+	    console.log(categorySelect.val());
 	    // Constructing a newPost object to hand to the database
 	    var newPost = {
 		    post_title: titleInput
@@ -73,9 +80,14 @@ $(document).ready(function() {
 			  .trim(),
 		    post_price: priceInput
 		      .val()
-		      .trim()
+		      .trim(),
+		    maincategoryMaincategoriesId: categorySelect
+		      .val(),
+		    userId: currentUser,
+		    subcategoryId: 1 // hard coding subcategory in in for testing purposes
 	  	};
 
+	  	submitPost(newPost);
 	} // end of handlePostSubmit
 
 	function submitPost(post) {

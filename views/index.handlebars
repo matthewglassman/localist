@@ -1,16 +1,16 @@
-        <div class="row">
-            {{!-- <div class="col-md-8 col-md-offset-2">
-                <div class="author-container">
-                    <h1>LocaList</h1> --}}
-                    <div id="messages"></div>
-                    <form id="author-form">
+<div class="container">
+    <div class="row">
+        {{!-- <div class="col-md-8 col-md-offset-2">
+            <div class="author-container">
+                <h1>LocaList</h1> --}}
+                <div id="messages"></div>
+                <form id="author-form">
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>Email Address</th>
                                 <th>Password</th>
-                                <th>Full Name</th>
-                                
+                                <th>Full Name</th> 
                             </tr>
                         </thead>
                         <tbody>
@@ -24,7 +24,6 @@
                                  <td>
                                     <input placeholder="Enter your Full Name" id="author-name" type="text" />
                                 </td>
-
                             </tr>
                             <tr>
                                 <th>Zip Code</th>
@@ -35,14 +34,34 @@
                                     <input placeholder="Enter your Zip Code" id="author-zip" type="text" />
                                 </td>
                                 <td>
-                                    <button type="submit" class="btn btn-success">Create an Account</button>
+                                    <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#welcomeModal">Create an Account</button>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    </form>
-                </div>
-            </div>
-        </div>
-        </div>
+                </form>
+            {{!-- </div>
+        </div> --}}
+    </div>
+</div>
 
+
+
+<!-- Modal -->
+<div class="modal fade" id="welcomeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Welcome!</h4>
+      </div>
+      <div class="modal-body">
+        <h2>Are you <a href="/buyer">buying</a> or <a href="/seller">selling</a> today?</h2>
+      </div>
+      {{!-- <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> --}}
+    </div>
+  </div>
+</div>
