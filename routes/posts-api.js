@@ -56,7 +56,7 @@ module.exports = function(app){
 			post_price: req.body.price
 		}).then(function(dbposts){
 			res.json(dbposts);
-		}
+
 		});
 	});
 
