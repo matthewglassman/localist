@@ -39,7 +39,7 @@ module.exports = function(app){
 	app.get("/api/posts/:id", function(req, res){
 		db.posts.findOne({
 			where: {
-				id: req.params.posts_id
+				post_id: req.params.id
 			}
 		}).then(function(dbposts){
 			console.log(dbposts);
@@ -51,13 +51,13 @@ module.exports = function(app){
 		//db.posts.create(req.body).then(function(dbposts){
 
 		db.posts.create({
-			post_title: req.body.post_title,
-			post_body: req.body.post_body,
+			post_title: req.body.title,
+			post_body: req.body.body,
 			// post_photo: req.body.post_photo,
 			post_price: req.body.post_price,
-			maincategoryMaincategoriesId: req.body.post_maincategoryMaincategoriesId,
+			maincategoryMaincategoriesId: req.body.maincategory,
 			userId: req.body.userId,
-			subcategoryId: req.body.subcategoryId
+			subcategoryId: req.body.subcategory
 		}).then(function(dbposts){
 			res.json(dbposts);
 		});
