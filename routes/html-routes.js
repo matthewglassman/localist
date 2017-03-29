@@ -28,7 +28,7 @@ module.exports = function(app) {
 
   // buyer route loads buyer
   app.get("/buyer", function(req, res) {
-    res.render("buyer", {title: "hi"});
+    res.render("buyer");
   });
 
   // user profile route loads user profile
