@@ -28,24 +28,32 @@ $(document).ready(function() {
 	        .val()
 	        .trim(),
 	      user_password: passwordInput
-	        .val()
-	        .trim(),
+	        .va()
+	        .trim(),l
 	      user_zip: zipInput
 	      	.val()
 	      	.trim(),
 	    };
 
-	    submitUser(newUser)
+	    submitUser(newUser.user_name, newUser.user_email, newUser.user_password, newUser.user_zip)
 	}
 
-	function submitUser(user) {
-		$.post("/api/users", user, function(data) {
-			console.log('Created user');
-			console.log(data.user_email);
-			$('#messages').html("Successfully created user: " + data.user_name);
+	function submitUser(user_name, user_email, user_password, user_zip) {
+		// $.post("/api/users", user, function(data) {
+					$.post("/api/users", {
+						user_name: user_name,
+						user_email: user_email,
+						user_password: user_password,
+						user_zip: user_zip
+					}).then(function(data){
+						console.log('Created user');
+						console.log(data);
+						console.log("Data is" + data);
+						$('#messages').html("Successfully created user: " + data.user_name);
+					})
+			
 			// TODO maybe clear form if not redirecting to a new page
 			// TODO Either log in the user or redirect to a login page
-		}); // change /api/posts if we change the route in users-api.js
-	} // end submitUser()
+		}; // change /api/posts if we change the route in users-api.js
+	}); // end submitUser()
 
-});

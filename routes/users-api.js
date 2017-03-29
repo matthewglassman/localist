@@ -21,15 +21,15 @@ module.exports = function(app) {
 			res.json(dbusers);
 		});
 	});
-	app.post("/api/users/new", function(req, res){
-		console.log(req.body);
+	app.post("/api/users", function(req, res){
+		console.log("from inside users-api "+req.body.user_name);
 		//db.users.create(req.body).then(function(dbusers){
 		//Writing in actual items to grab from user form to create a new user.  Need to get IDs of form fields.
 		db.users.create({
-			user_name: req.body.user,
-			user_email: req.body.email,
-			user_password: req.body.password,
-			user_zip: req.body.userzip
+			user_name: req.body.user_name,
+			user_email: req.body.user_email,
+			user_password: req.body.user_password,
+			user_zip: req.body.user_zip
 		}).then(function(dbusers){
 			res.json(dbusers);
 		});
