@@ -108,7 +108,7 @@ $(document).ready(function() {
 
 	    getPosts(searchInput.val().trim());
 
-	  } // end of handleSearchSubmit
+	} // end of handleSearchSubmit
 
 	  function getPosts(searchTerms) {
 	  	var params = {
@@ -122,11 +122,17 @@ $(document).ready(function() {
 	    	resultsTableBody.empty();
 	    	// POpulate table with search results
 	    	data.forEach(function(post) {
+	    		// Add a tr (row) to the table body
 	    		var tr = $('<tr>').appendTo(resultsTableBody);
-	    		$('<td>').html(post.post_title).appendTo(tr);
-	    		// TODO make row link to individual post page
+	    		// Add a td (cell) to the row
+	    		var td = $('<td>').appendTo(tr);
+	    		// Add link ed text to the table cell
+	    		$('<a href="/post.html?id=' + post.post_id + '">').html(post.post_title).appendTo(td);
+	    		// TODO add td elements for each field you want in the listing 
 	    	});
 	    	
 	    });
 	  }
+
+	  getPosts();
 });
