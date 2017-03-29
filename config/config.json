@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "1lorenzo3",
+    "password": null,
     "database": "localist",
     "host": "localhost",
 
@@ -9,14 +9,14 @@
   },
   "test": {
     "username": "root",
-    "password": "1lorenzo3",
+    "password": null,
     "database": "database_test",
     "host": "localhost",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "1lorenzo3",
+    "password": null,
     "database": "database_production",
     "host": "localhost",
     "dialect": "mysql"
