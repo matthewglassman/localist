@@ -1,18 +1,18 @@
 var db = require("../models");
 
 module.exports = function(app) {
-	app.get("/login", function(req, res){
-		var query = {};
-		if(req.query.user_name){
-			query.user_name = req.query.user_name;
-		}
-		db.users.findOne({
-			where: query
-		}).then(function(dbusers) {
-			res.render("../views/profile", {dbusers});
-			// res.json(dbusers)
-		})
-	});
+	// app.get("/login", function(req, res){
+	// 	var query = {};
+	// 	if(req.query.user_name){
+	// 		query.user_name = req.query.user_name;
+	// 	}
+	// 	db.users.findOne({
+	// 		where: query
+	// 	}).then(function(dbusers) {
+	// 		res.render("../views/profile", {dbusers});
+	// 		// res.json(dbusers)
+	// 	})
+	// });
 
 
 	// haven't looked at this code yet
@@ -41,7 +41,7 @@ module.exports = function(app) {
 				id: req.params.users_id
 			}
 		}).then(function(dbusers) {
-			res.json(dbAuthor);
+			res.json(dbusers);
 		});
 	});
 };
