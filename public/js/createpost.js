@@ -31,7 +31,7 @@ $(document).ready(function() {
 
 	var postForm = $("#post-form"); // whatever the <form> id is
 
-	$(postForm).on("submit", handleFormSubmit);
+	$(document).on("submit", postForm, handleFormSubmit);
 
 	function handleFormSubmit(event){
 		event.preventDefault(); 
@@ -50,7 +50,7 @@ $(document).ready(function() {
 
 	function submitPost(post) {
 		// TODO get logged in user id
-		post.userId = 1;
+		post.userId = $("#userId").text();
 		$.post("/api/posts", post, function(data) {
 			console.log('Created post');
 			console.log(data);
