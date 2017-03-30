@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Julie0214",
+    "password": null,
     "database": "localist",
     "host": "localhost",
 
