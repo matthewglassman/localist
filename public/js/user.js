@@ -95,9 +95,7 @@ $(document).ready(function() {
 	      user_email: email,
 	      user_password: password
 	    }).then(function(data){
-			console.log('logged in');
-			console.log(data);
-			console.log("Data is" + data);
+			window.location.replace(data);
 		})
   	}
 

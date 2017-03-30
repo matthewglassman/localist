@@ -1,10 +1,44 @@
 <h2>Whatcha Sellin'?</h2>
 
 <div class="container">
-  <h3>Create a new listing!</h3>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <textarea placeholder="Post Title" name="title" class="form-control" id="title"></textarea>
+        <div id="title"></div>
+          <br>
+
+        <label for="body">Body:</label>
+        <textarea placeholder="Post Body" name="body" class="form-control" rows="10" id="body"></textarea>
+        <!-- TODO add price field -->
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="number" name="price" class="form-control" id="price">
+        </div>
+        <div class="form-group">
+            <label for="maincategory">Category:</label>
+            <select name="maincategory" class="form-control" id="maincategory">
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="subcategory">Select Subcategory:</label>
+            <select name="subcategory" class="form-control" id="subcategory">
+          </select>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-success submit">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 
   {{!-- <form id="listing" class="create-update-form" action="/add" method="POST"> --}}
-  <form id="listing" class="create-update-form">
+  {{!-- <form id="listing" class="create-update-form">
     <div class="form-group">
 
       <label for="post_title">Title</label>
@@ -25,17 +59,4 @@
     </div>
 
     <button type="submit">Submit new listing!</button>
-  </form>
-
-
-<h3>Your current listings!</h3>
-<ul>
-    {{#each dbposts}}
-      <li>
-        {{this.post_title}}
-        {{!-- {{this.post_body}} --}}
-      </li>
-    {{/each}}
-  </ul>
-
-</div>
+  </form> --}}
