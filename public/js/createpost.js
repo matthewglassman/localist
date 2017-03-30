@@ -41,6 +41,11 @@ $(document).ready(function() {
 	    }
 
 	    submitPost(postForm.serializeJSON());
+
+	    $("#title").val("");
+        $("#body").val("");
+        $("#price").val("");
+        // zipInput.val("");
 	}
 
 	function submitPost(post) {
