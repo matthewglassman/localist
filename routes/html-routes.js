@@ -17,18 +17,7 @@ module.exports = function(app) {
 
   // seller route loads seller
   app.get("/seller", function(req, res) {
-    var query = {};
-    if (req.query.user_name) {
-      query.user_name = req.query.user_name;
-    }
-
-    model.posts.findAll({
-      where: query,
-      include: [model.users]
-    })
-      .then(function(dbposts){
-        res.render("seller", {dbposts});
-      });
+    res.render("seller", { id: req.session.userId})
   });
 
   // buyer route loads buyer
