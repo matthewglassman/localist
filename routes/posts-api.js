@@ -1,14 +1,14 @@
 var db = require("../models");
 
 module.exports = function(app){
-	app.post("/add", function(req, res) {
-		db.posts.create({
-			post_title: req.body.post_title,
-			post_body: req.body.post_body
-		}).then(function(){
-			res.redirect("/seller");
-		});
-	});
+	// app.post("/add", function(req, res) {
+	// 	db.posts.create({
+	// 		post_title: req.body.post_title,
+	// 		post_body: req.body.post_body
+	// 	}).then(function(){
+	// 		res.redirect("/seller");
+	// 	});
+	// });
 
 	// haven't looked at this code yet
 	app.get("/api/posts", function(req, res){
@@ -51,6 +51,7 @@ module.exports = function(app){
 		//db.posts.create(req.body).then(function(dbposts){
 
 		db.posts.create({
+			// post_id: req.body,
 			post_title: req.body.title,
 			post_body: req.body.body,
 			// post_photo: req.body.post_photo,

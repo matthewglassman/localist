@@ -1,21 +1,21 @@
 // For creating a new user
-
 $(document).ready(function() {
-	console.log('user.js');
-	// creating user
+
 	var usernameInput = $("#author-name"); // whatever the <input> id is
 	var passwordInput = $("#author-password"); // whatever the <input> id is
 	var emailInput = $("#author-email");	// whatever the <input> id is
 	var zipInput = $("#author-zip"); // whatever the <input> id is
+	var currentUser; 
 
 	var userForm = $("#author-form"); // whatever the <form> id is
 
-	$(userForm).on("submit", handleFormSubmit);
+	$(userForm).on("submit", handleUserSubmit);
 
-	function handleFormSubmit(event){
+	function handleUserSubmit(event){
 		event.preventDefault(); // Won't submit the creation if missing username, password, email, zip code
 
 	    if (!usernameInput.val().trim() || !passwordInput.val().trim() || !emailInput.val().trim() || !zipInput.val().trim()) {
+	      console.log("empty input");
 	      return;
 	    }
 
@@ -32,36 +32,32 @@ $(document).ready(function() {
 	        .trim(),
 	      user_zip: zipInput
 	      	.val()
-	      	.trim()
+	      	.trim(),
 	    };
+	    console.log(newUser);
 
-	    submitUser(newUser.user_name, newUser.user_email, newUser.user_password, newUser.user_zip);
+	    submitUser(newUser);
 	}
 
-	function submitUser(user_name, user_email, user_password, user_zip) {
-		// $.post("/api/users", user, function(data) {
+	function submitUser(user) {
+		$.post("/api/users", user, function(data) {
+			console.log('Created user');
+			console.log(data.user_email);
+			currentUser = data.id;
 
-		$.post("/api/users", {
-			user_name: user_name,
-			user_email: user_email,
-			user_password: user_password,
-			user_zip: user_zip
-		}).then(function(data) {
-	      window.location.replace(data);
-	      $('#messages').html("Successfully created user: " + data.user_name);
-	    }).catch(function(err) {
-	      console.log(err);
-	    });
+	    	window.location.reload();
+
+			// $('#messages').html("Successfully created user: " + data.user_name);
+			// TODO maybe clear form if not redirecting to a new page
+			// TODO Either log in the user or redirect to a login page
+		}); // change /api/posts if we change the route in users-api.js
 
 		usernameInput.val("");
 	    passwordInput.val("");
 	    emailInput.val("");
 	    zipInput.val("");
-		
-			// TODO maybe clear form if not redirecting to a new page
-			// TODO Either log in the user or redirect to a login page
-	}; // end submitUser() // change /api/posts if we change the route in users-api.js
-	
+	} // end submitUser()
+
 	// logging in
 	var loginInput = $("#login-email");
   	var loginPasswordInput = $("#login-password");
@@ -94,9 +90,9 @@ $(document).ready(function() {
 	    $.post("/api/login", {
 	      user_email: email,
 	      user_password: password
-	    }).then(function(data){
-			window.location.replace(data);
-		})
+	    }, function(data) {
+	    	window.location.reload();
+	    });
   	}
-}; // end document.ready
+}); // end document.ready
 
