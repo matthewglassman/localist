@@ -1,4 +1,4 @@
-var bcrypt = require('bcryptjs');
+var bcrypt = require('bcrypt-nodejs');
 
 module.exports = function(sequelize, DataTypes){
 	var users = sequelize.define("users",{
@@ -21,7 +21,7 @@ module.exports = function(sequelize, DataTypes){
 			}
 		},
 		user_password:{
-			type: DataTypes.TEXT,
+			type: DataTypes.STRING,
 			allowNull: false
 		},
 		user_zip:{
@@ -36,18 +36,30 @@ module.exports = function(sequelize, DataTypes){
 			}
 		}	
 	}, {
+	    instanceMethods: {
+	      validPassword: function(password) {
+	      	console.log(this.user_password)
+	        return bcrypt.compareSync(password, this.user_password);
+	      }
+	    },
+		// hooks: {
+		// 	afterValidate: function(user){
+		// 		user.password = bcrypt.hashSync(user.password, 8);
+		// 	}
+		// }
 		hooks: {
-			afterValidate: function(user){
-				//user.password = bcrypt.hashSync(user.password, 8);
-			}
-		}
-	},
-	{
+	    	beforeCreate: function(user, options, cb) {
+	    		console.log("i'm here in the hooks!")
+	        	user.user_password = bcrypt.hashSync(user.user_password, bcrypt.genSaltSync(10), null);
+	        	cb(null, options);
+	    	}
+	    }
+	}, {
 		classMethods: {
-        associate: function(models) {
-          users.hasMany(models.posts);
-        }
-      }
+	        associate: function(models) {
+	        	users.hasMany(models.posts);
+        	}
+     	}
 	});
 
 	return users;

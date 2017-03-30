@@ -1,9 +1,19 @@
-<h2>PROBABLY NOT USING THIS PAGE</h2> {{! find way to add Welcome, "user_name"}}
-
+{{! find way to add Welcome, "user_name"}}
+<h2> Welcome! </h2>
 <div class="container">
 	<h3>Are you <a href="/buyer">buying</a> or <a href="/seller">selling</a> today?</h3>
-</div>
 
+
+	<h3>Your current listings!</h3>
+	<ul>
+	    {{#each dbposts}}
+	      <li>
+	        {{this.post_title}}
+	      </li>
+	    {{/each}}
+	</ul>
+
+</div>
 	{{!-- <form id="userForm" action="/NEEDPATH" method="POST"> --}}
 		
 {{!-- not sure what this code is for or where it came from?

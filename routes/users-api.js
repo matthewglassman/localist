@@ -1,4 +1,5 @@
 var db = require("../models");
+var passport = require("../config/passport");
 
 module.exports = function(app) {
 	// app.get("/login", function(req, res){
@@ -15,12 +16,18 @@ module.exports = function(app) {
 	// });
 
 	// haven't looked at this code yet
-	app.get("/profile", function(req, res){
+	app.get("/api/users", function(req, res){
 		db.users.findAll({} ).then(function(dbusers){
 			res.json(dbusers);
 		});
 	});
 
+	// log in
+	app.post("/api/login", passport.authenticate("local"), function(req, res) {
+		res.json("");
+	});
+
+	// sign up
 	app.post("/api/users", function(req, res){
 		// console.log("from inside users-api "+req.body.user_name);
 		//db.users.create(req.body).then(function(dbusers){
@@ -30,9 +37,16 @@ module.exports = function(app) {
 			user_email: req.body.user_email,
 			user_password: req.body.user_password,
 			user_zip: req.body.user_zip
-		}).then(function(dbusers){
-			res.json(dbusers);
-		});
+		}).then(function() {
+	      res.redirect(307, "/api/login");
+	    }).catch(function(err) {
+	      res.json(err);
+	    });
+	});
+
+	app.get("/logout", function(req, res) {
+	    req.logout();
+	    res.redirect("/");
 	});
 
 	app.delete("/api/users/:id", function(req, res){
