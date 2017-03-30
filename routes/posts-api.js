@@ -54,7 +54,7 @@ module.exports = function(app){
 			post_title: req.body.title,
 			post_body: req.body.body,
 			// post_photo: req.body.post_photo,
-			post_price: req.body.post_price,
+			post_price: req.body.price,
 			maincategoryMaincategoriesId: req.body.maincategory,
 			userId: req.body.userId,
 			subcategoryId: req.body.subcategory
