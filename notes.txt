@@ -1,0 +1,12 @@
+--insert into maincategories (maincategories_name, createdAt, updatedAt) values ('For Sale', '2017-03-27', '2017-03-27');
+
+--insert into subcategories (subcategories_name, createdAt, updatedAt, `maincategoryMaincategoriesId`) values ('Furniture', '2017-03-27', '2017-03-27', 3);
+
+--insert into posts (post_title, post_body, post_price, createdAt, updatedAt, userId, maincategoryMaincategoriesId, subcategoryId) values 
+--('couch', 'Ratty old couch', '10', '2017-03-27', '2017-03-27', 1, 3, 1);
+
+--SELECT `post_id`, `post_title`, `post_body`, `post_photo`, `post_price`, `createdAt`, `updatedAt`, `maincategoryMaincategoriesId`, `userId`, `subcategoryId` FROM `posts` AS `posts` WHERE `posts`.`post_body` LIKE "%couch%";
+
+delete from maincategories where maincategories_id > 3;
+
+insert into subcategories (subcategories_name, createdAt, updatedAt, `maincategoryMaincategoriesId`) values ('Events', '2017-03-27', '2017-03-27', 3);

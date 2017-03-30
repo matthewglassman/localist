@@ -98,5 +98,5 @@ $(document).ready(function() {
 			window.location.replace(data);
 		})
   	}
+}; // end document.ready
 
-}); // end document.ready
