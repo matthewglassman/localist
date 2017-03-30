@@ -2,11 +2,16 @@
 // =============================================================
 var path = require("path");
 var model = require("../models");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
 
   // index route loads index
   app.get("/", function(req, res) {
+    
+    if (req.user) {
+      return res.redirect("/profile");
+    }
     res.render("index");
   });
 
@@ -31,10 +36,9 @@ module.exports = function(app) {
     res.render("buyer");
   });
 
-  // user profile route loads user profile
-  app.get("/profile", function(req, res) {
-    res.render("profile");
+  // user profile route loads user profile ** maybe not be using this page **
+  app.get("/profile", isAuthenticated, function(req, res) {
+    res.render("profile")
   });
-
   
 };
