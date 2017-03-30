@@ -45,7 +45,7 @@ $(document).ready(function() {
 
 	function submitPost(post) {
 		// TODO get logged in user id
-		post.userId = 1;
+		post.userId = $("#userId").val();
 		$.post("/api/posts", post, function(data) {
 			console.log('Created post');
 			console.log(data);
