@@ -1,16 +1,34 @@
 <div class="container">
     <div class="row">
+        <div class="col-md-6">
         {{!-- <div class="col-md-8 col-md-offset-2">
             <div class="author-container">
                 <h1>LocaList</h1> --}}
+                <h2>Sign up!</h2>
                 <div id="messages"></div>
                 <form id="author-form">
-                    <table class="table table-striped">
+                    <label for="author-email">Email Address</label><br>
+                    <input placeholder="Email Address" id="author-email" type="text"><br><br>
+                    
+                    <label for="author-password">Password</label><br>
+                    <input placeholder="Password" id="author-password" type="password"><br><br>
+
+                    <label for="author-name">Name</label><br>
+                    <input placeholder="Full Name" id="author-name" type="text"><br><br>
+
+                    <label for="author-zip">Zip Code</label><br>
+                    <input placeholder="Zip Code" id="author-zip" type="text"><br><br>
+
+                    <button type="submit" class="btn btn-success" {{!-- data-toggle="modal" data-target="#welcomeModal" --}}>Create an Account</button>
+
+                    {{!-- <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>Email Address</th>
                                 <th>Password</th>
                                 <th>Full Name</th> 
+                                <th>Zip Code</th>
+                                <th>Create an Account</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -24,29 +42,42 @@
                                  <td>
                                     <input placeholder="Enter your Full Name" id="author-name" type="text" />
                                 </td>
-                            </tr>
-                            <tr>
-                                <th>Zip Code</th>
-                                <th>Create an Account</th>
-                            </tr>
-                            <tr>
-                                 <td>
+                                <td>
                                     <input placeholder="Enter your Zip Code" id="author-zip" type="text" />
                                 </td>
                                 <td>
                                     <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#welcomeModal">Create an Account</button>
                                 </td>
                             </tr>
+                            <tr>
+                                
+                            </tr>
+                            <tr>
+                                 
+                            </tr>
                         </tbody>
-                    </table>
+                    </table> --}}
                 </form>
-            {{!-- </div>
-        </div> --}}
-    </div>
-</div>
+        </div> {{!-- user sign up --}}
+
+        <div class="col-md-6">
+            <h2>Log in!</h2>
+            <div id="messages"></div>
+            <form id="login-form">
+                <label for="login-email">Email Address</label><br>
+                <input placeholder="Email Address" id="login-email" type="text"><br><br>
+                
+                <label for="login-password">Password</label><br>
+                <input placeholder="Password" id="login-password" type="password"><br><br>
+
+                <button type="submit" class="btn btn-success" {{!-- data-toggle="modal" data-target="#welcomeModal" --}}>Login</button>
+            </form>
+        </div>
+    </div> {{!-- end row --}}
+</div> {{!-- end container --}}
 
 
-
+{{!-- 
 <!-- Modal -->
 <div class="modal fade" id="welcomeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -64,4 +95,4 @@
       </div> --}}
     </div>
   </div>
-</div>
+</div> --}}

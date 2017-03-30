@@ -8,6 +8,8 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require('express-handlebars');
 var methodOverride = require('method-override');
+var session = require("express-session");
+var passport = require("./config/passport");
 
 // Sets up the Express App
 // =============================================================
@@ -15,13 +17,18 @@ var app = express();
 var PORT = process.env.PORT || 3030;
 var db = require("./models");
 
+app.use('/', express.static('public'));
+
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.text());
+app.use(bodyParser.json());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-app.use('/', express.static('public'));
+// Sessions to keep track of log in
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
