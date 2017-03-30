@@ -23,9 +23,14 @@ module.exports = function(app) {
 	});
 
 	// log in
+	// app.post("/api/login", passport.authenticate("local"), function(req, res) {
+	// 	res.json("");
+	// });
+
 	app.post("/api/login", passport.authenticate("local"), function(req, res) {
-		res.json("");
-	});
+        req.session.username = req.user.user_name;
+        res.json("");
+    });
 
 	// sign up
 	app.post("/api/users", function(req, res){

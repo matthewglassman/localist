@@ -398,3 +398,9 @@ h2 {
 
 .jumbotron {
   background-color: #AEE0C5; }
+
+.container {
+  text-align: center; }
+
+#results {
+  text-align: center; }
